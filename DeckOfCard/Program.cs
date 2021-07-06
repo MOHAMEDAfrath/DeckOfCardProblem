@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DeckOfCard
 {
@@ -7,6 +8,8 @@ namespace DeckOfCard
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Deck of Cards Problem");
+            ShuffleCard shuffleCard = new ShuffleCard();
+            shuffleCard.ShufflingAndDistributing();
         }
     }
 }
