@@ -13,11 +13,11 @@ namespace DeckOfCard
         {
             var suit = new List<string>
             {
-                "C","D","H","S"
+                "Club","Diamond","Heart","Spade"
             };
             var rank = new List<string>
             {
-                "2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"
+                "2","3","4","5","6","7","8","9","10","J","Q","K","A"
             };
             LinkedList<string> cards = new LinkedList<string>(); 
             LinkedList<string> players = new LinkedList<string>();
@@ -26,19 +26,26 @@ namespace DeckOfCard
                 foreach (var mem in rank)
                 {
                     cards.AddLast(suit[i] + mem);
+                    
                 }
             }
-            Dictionary<string, HashSet<string>> playersWithCards  = new Dictionary<string, HashSet<string>>();
+            foreach(var member in cards)
+            {
+                Console.Write(member+ " ");
+               
+            }
+            Console.WriteLine(" ");
+            Dictionary<string, SortedSet<string>> playersWithCards  = new Dictionary<string, SortedSet<string>>();
             
             int player = 1;
             while (player != 5)
             {
-                HashSet<string> card = new HashSet<string>();
+                SortedSet<string> card = new SortedSet<string>();
                 while (card.Count < 9)
                 {
                     int ransuit = random.Next(0, suit.Count);
                     int ranrank = random.Next(0, rank.Count);
-                    card.Add(suit[ransuit] + rank[ranrank]);
+                    card.Add(rank[ranrank]+suit[ransuit]);
                 }
                 playersWithCards.Add(("player" + player), card);
                 player++;
@@ -48,14 +55,19 @@ namespace DeckOfCard
             {
                 players.AddLast(member.Key);
                 Console.WriteLine(member.Key);
-                foreach(var members in member.Value)
+                foreach (var members in member.Value.Reverse()) 
                 {
-                    Console.Write(members+" ");
+                    
+                        Console.Write(members+ " ");
+                    
                 }
                 Console.WriteLine(" ");
+               
             }
                
         }
+      
             
     }
+    
 }
