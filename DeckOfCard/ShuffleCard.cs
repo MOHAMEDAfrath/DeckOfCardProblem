@@ -69,7 +69,7 @@ namespace DeckOfCard
             LinkedList<string> sorted = new LinkedList<string>();
             var temp = new List<string>();
 
-            foreach (string i in playarray.OrderBy(x => x))
+            foreach (var i in playarray.OrderBy(value => value))
             {
                 if (arr.Contains(i[0]))
                 {
@@ -80,7 +80,7 @@ namespace DeckOfCard
                     temp.Add(i);
                 }
             }
-            temp = temp.OrderBy(i => i).ToList();
+            temp = temp.OrderBy(t => t).ToList();
             //Sort array a containing Ranks in alphabet
             for (int i = 0; i < temp.Count - 1; i++)
             {
