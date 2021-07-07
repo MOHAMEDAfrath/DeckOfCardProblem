@@ -56,11 +56,7 @@ namespace DeckOfCard
             {
                 players.AddLast(member.Key);
                 Console.WriteLine(member.Key);
-
-
                 Swapping(member.Value);
-                    
-                
                 Console.WriteLine(" ");
                
             }
@@ -103,6 +99,7 @@ namespace DeckOfCard
             {
                 sorted.AddLast(i);
             }
+            Console.WriteLine("***After Shuffling and sorting***");
             foreach(var member in sorted)
             {
                 Console.Write(member+" ");
